@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.app-frame {
+  background: #00cbcc;
+  margin: 5%;
+  padding: 30px;
+  width: calc(80vw);
+  height: 80vh;
+  box-sizing: border-box;
+}
+
+.app-header {
+  border: 0;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: white;
+  /*border: 2px solid red;*/
+}
+
+.app-header h1 {
+  color: white;
+}
+
+.app-frame h2 {
+  font-weight: lighter;
+  font-size: 1.3em;
+}
+
+.customers-actions {
+  background: rgba(0,0,0,0.2);
+  padding: 10px;
+  margin: 0;
+}
+
+.customers-actions button {
+  background: white;
+  min-width: 100px;
+  height: 30px;
+  margin: 5px;
+  border-style: none;
+  border-radius: 3px;
+  font-weight: bolder;
+}

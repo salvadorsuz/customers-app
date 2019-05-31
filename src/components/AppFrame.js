@@ -5,7 +5,7 @@ import AppHeader from './AppHeader';
 const AppFrame = ({header, body}) => {
     return (
         <div>
-            <div name="app-frame">
+            <div className="app-frame">
                 <AppHeader title={header}></AppHeader>
                 <div>{body}</div>
                 <div>Footer ejemplo</div>
