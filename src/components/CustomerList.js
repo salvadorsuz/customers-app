@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CustomerListItem from './CustomerListItem';
 
-const CustomersList = ({customers, urlPath}) => {
+const CustomerList = ({customers, urlPath}) => {
     return (
         <div>
-            <div className="customers-list">
+            <div className="customer-list">
                 {
                     customers.map(c=> 
                         <CustomerListItem 
@@ -22,9 +22,9 @@ const CustomersList = ({customers, urlPath}) => {
     );
 };
 
-CustomersList.propTypes = {
+CustomerList.propTypes = {
     customers: PropTypes.array.isRequired,
     urlPath: PropTypes.string.isRequired,
 };
 
-export default CustomersList;
+export default CustomerList;

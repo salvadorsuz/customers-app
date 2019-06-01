@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+/*app frame*/
+
 .app-frame {
   background: #00cbcc;
   margin: 5%;
@@ -21,35 +23,93 @@ code {
   box-sizing: border-box;
 }
 
+.app-frame h2 {
+  font-weight: lighter;
+  font-size: 1.3em;
+}
+
+.app-frame p {
+  color: white;
+  font-size: 10px;
+  font-style: italic;
+}
+
+/*app header*/
+
 .app-header {
   border: 0;
   border-bottom: 1px;
   border-style: solid;
   border-color: white;
-  /*border: 2px solid red;*/
 }
 
 .app-header h1 {
   color: white;
 }
 
-.app-frame h2 {
-  font-weight: lighter;
-  font-size: 1.3em;
-}
+/*customers actions*/
 
-.customers-actions {
+.customer-actions {
   background: rgba(0,0,0,0.2);
   padding: 10px;
   margin: 0;
 }
 
-.customers-actions button {
+.customer-actions button {
   background: white;
   min-width: 100px;
   height: 30px;
   margin: 5px;
   border-style: none;
   border-radius: 3px;
+  font-weight: bolder;
+}
+
+.customer-actions button:hover {
+  background: #F0F0F0;
+  border-style: solid;
+}
+
+
+/*customers list*/
+
+.customer-list .customer-list-item {
+  width: 100%;
+  background: #FFF; 
+  transition: 500ms;
+  height: 40px;
+}
+
+.customer-list .customer-list-item:nth-child(even) {
+  background: #AAA;  
+}
+
+.customer-list .customer-list-item:hover {
+  background: #84adad3a;
+  border: 1px solid;
+} 
+
+.customer-list-item .field {
+  margin: 0;
+  padding: 4px;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 40px;
+  width: 15%;
+  box-sizing: border-box;  
+}
+
+.customer-list-item .field:first-child {
+  width: 70%;
+}
+
+.customer-list-item .field a {
+  color: #666;
+  text-decoration: none;
+}
+
+.customer-list-item .field:first-child > a {
+  color: #222;
+  text-decoration: none;
   font-weight: bolder;
 }

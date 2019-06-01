@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
 import CustomersContainer from './containers/CustomersContainer';
+import CustomerNewContainer from './containers/CustomerNewContainer';
 
 class App extends Component {
   
@@ -9,12 +10,12 @@ class App extends Component {
   
   renderCustomerListContainer = () => <CustomersContainer />;
 
+  renderCustomerNewContainer = () => <CustomerNewContainer />;
+
   renderCustomerContainer = () => <h1>Customer Container</h1>;
 
   renderCustomerEditContainer = () => <h1>Customer Edit Container</h1>;
   
-  renderCustomerNewContainer = () => <h1>Customer New Container</h1>;
-
   render() {
     return (
       <Router>
