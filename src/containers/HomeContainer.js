@@ -30,5 +30,4 @@ class HomeContainer extends Component {
     }
 }
 
-
 export default withRouter(HomeContainer);

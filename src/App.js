@@ -3,29 +3,29 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
 import CustomersContainer from './containers/CustomersContainer';
 import CustomerNewContainer from './containers/CustomerNewContainer';
+import CustomerContainer from './containers/CustomerContainer';
 
 class App extends Component {
-  
+/*  
   renderHome = () => <HomeContainer />;
   
   renderCustomerListContainer = () => <CustomersContainer />;
 
   renderCustomerNewContainer = () => <CustomerNewContainer />;
 
-  renderCustomerContainer = () => <h1>Customer Container</h1>;
+  renderCustomerContainer = () => <CustomerContainer />;
 
-  renderCustomerEditContainer = () => <h1>Customer Edit Container</h1>;
-  
+  renderCustomerEditContainer = () => <CustomerContainer />;
+*/  
   render() {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={this.renderHome}/>
-          <Route exact path="/customers" component={this.renderCustomerListContainer}/>
+          <Route exact path="/" component={HomeContainer}/>
+          <Route exact path="/customers" component={CustomersContainer}/>
           <Switch>
-            <Route path="/customers/new" component={this.renderCustomerNewContainer}/>
-            <Route path="/customers/:dni/edit" component={this.renderCustomerEditContainer}/>
-            <Route path="/customers/:dni" component={this.renderCustomerContainer}/>
+            <Route path="/customers/new" component={CustomerNewContainer}/>
+            <Route path="/customers/:dni" render={props => <CustomerContainer dni={props.match.params.dni}/>}/>
           </Switch>
         </div>
       </Router>

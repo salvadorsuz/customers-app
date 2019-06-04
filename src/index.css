@@ -38,7 +38,7 @@ code {
 
 .app-header {
   border: 0;
-  border-bottom: 1px;
+  border-bottom: 2px;
   border-style: solid;
   border-color: white;
 }
@@ -73,11 +73,16 @@ code {
 
 /*customers list*/
 
+.customer-list {
+  margin-top: 30px;
+}
+
 .customer-list .customer-list-item {
   width: 100%;
   background: #FFF; 
   transition: 500ms;
   height: 40px;
+  box-sizing: border-box;  
 }
 
 .customer-list .customer-list-item:nth-child(even) {
