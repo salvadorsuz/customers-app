@@ -1,9 +1,29 @@
 {
   "customers": [
-    {"dni":"123", "name": "Pepe", "age": 30},
-    {"dni":"456", "name": "Paco", "age": 31},
-    {"dni":"789", "name": "Antonio", "age": 32},
-    {"dni":"741", "name": "jose", "age": 33}
+    {
+      "id": "123",
+      "dni": "123",
+      "name": "PEPE SANCHEZ ORO",
+      "age": 10
+    },
+    {
+      "id": "456",
+      "dni": "456",
+      "name": "PACO MELO",
+      "age": 32
+    },
+    {
+      "id": "789",
+      "dni": "789",
+      "name": "ANTONIO DIAZ",
+      "age": 32
+    },
+    {
+      "id": "741",
+      "dni": "741",
+      "name": "JOSE CARLOS",
+      "age": 12
+    }
   ],
   "posts": [
     {

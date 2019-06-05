@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import AppFrame from './../components/AppFrame';
-import CustomersActions from '../components/CustomerActions'
+import CustomerActions from '../components/CustomerActions'
 
 class HomeContainer extends Component {
     
@@ -13,9 +13,9 @@ class HomeContainer extends Component {
     renderBody = () => (
         <div>
             Esta es la pantalla inicial
-            <CustomersActions>
+            <CustomerActions>
                 <button onClick={this.handleOnClick}>Listado de clientes</button>
-            </CustomersActions>
+            </CustomerActions>
         </div>    
     )
 

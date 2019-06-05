@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CustomersList from '../components/CustomerList';
-import CustomersActions from '../components/CustomerActions';
+import CustomerActions from '../components/CustomerActions';
 import AppFrame from './../components/AppFrame';
 import {fetchCustomers} from './../actions/fetchCustomers';
 import {getCustomers} from './../selectors/customers';
@@ -25,9 +25,9 @@ class CustomersContainer extends Component {
                 customers={customers} 
                 urlPath={'/customers'}>
             </CustomersList>
-            <CustomersActions>
+            <CustomerActions>
                 <button onClick={this.handleAddNew}>Nuevo</button>
-            </CustomersActions>
+            </CustomerActions>
         </div>
     )
 
