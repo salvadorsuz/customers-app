@@ -1,16 +1,9 @@
-import React from 'react';
+import React, { Component} from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form'
 import { Prompt } from 'react-router-dom';
 import { setPropsAsInitial } from './../helpers/setPropsAsInitial';
 import CustomerActions from '../components/CustomerActions';
-import { MyField } from './MyField';
-
-/*
-const isRequired = value => (
-    !value && "Este campo es requerido"
-);
-*/
 
 const isNumber = value => (
     isNaN(Number(value)) && "El campo debe ser un numero"
@@ -36,44 +29,66 @@ const toLower = value => value && value.toLowerCase();
 const onlyGrow = (value, previousValue, values) => 
     value && (!previousValue ? value : (value > previousValue ? value : previousValue));
 
-const CustomerEdit = ({
-    name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded}) => {
-    return (
-        <div>
-            <h2>Edicion del cliente</h2>
-            <form onSubmit={handleSubmit}>
-                <Field 
-                    name="name" 
-                    component={MyField}
-                    label="Nombre"
-                    parse={toUpper}
-                    format={toLower} />
+class CustomerEdit extends Component{
 
-                <Field
-                    name="dni" 
-                    component={MyField}
-                    validate={[isNumber]} 
-                    label="Dni" />
+    componentDidMount() {
+        if(this.txt) {
+            this.txt.focus();
+        }
+    }
 
-                <Field 
-                    name="age" 
-                    component={MyField} 
-                    type="number"
-                    label="Edad"
-                    validate={[isNumber]} 
-                    parse={toNumber}
-                    normalize={onlyGrow} />
-
-                <CustomerActions>
-                    <button type="submit" disabled={pristine || submitting}>Aceptar</button>
-                    <button type="button" disabled={submitting} onClick={onBack}>Cancelar</button>
-                </CustomerActions>
-
-                <Prompt when={!pristine && !submitSucceeded} 
-                    message='Se perderan los datos si continua' />
-            </form>
-        </div>
+    renderField = ({input, meta, type, label, name, withFocus}) => (
+            <div>
+                <label htmlFor={name}>{label}</label>
+                <input {...input} 
+                    type={!type ? "text" : type}
+                    ref={withFocus && (txt => this.txt = txt)} />
+                {
+                    meta.touched && meta.error && <span>{meta.error}</span>
+                }
+            </div>
     );
+    
+    render () {
+        const {handleSubmit, submitting, onBack, pristine, submitSucceeded} = this.props;
+        return (
+            <div>
+                <h2>Edicion del cliente</h2>
+                <form onSubmit={handleSubmit}>
+                    <Field 
+                        withFocus
+                        name="name" 
+                        component={this.renderField}
+                        label="Nombre"
+                        parse={toUpper}
+                        format={toLower} />
+
+                    <Field
+                        name="dni" 
+                        component={this.renderField}
+                        validate={[isNumber]} 
+                        label="Dni" />
+
+                    <Field 
+                        name="age" 
+                        component={this.renderField}
+                        type="number"
+                        label="Edad"
+                        validate={[isNumber]} 
+                        parse={toNumber}
+                        normalize={onlyGrow} />
+
+                    <CustomerActions>
+                        <button type="submit" disabled={pristine || submitting}>Aceptar</button>
+                        <button type="button" disabled={submitting} onClick={onBack}>Cancelar</button>
+                    </CustomerActions>
+
+                    <Prompt when={!pristine && !submitSucceeded} 
+                        message='Se perderan los datos si continua' />
+                </form>
+            </div>
+        );
+    }
 };
 
 CustomerEdit.propTypes = {

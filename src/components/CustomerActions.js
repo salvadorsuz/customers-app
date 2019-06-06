@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 const CustomerActions = ({children}) => {
     return (
-        <div>
-            <div className="customer-actions">
-                <div>{children}</div>
-            </div>
+        <div className="customer-actions">
+            <div>{children}</div>
         </div>
     );
 };
