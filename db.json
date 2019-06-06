@@ -1,28 +1,18 @@
 {
   "customers": [
     {
-      "name": "ANTONIA",
-      "dni": "5678",
-      "age": 12,
-      "id": "U0lgutD"
-    },
-    {
-      "id": "HSGLwER",
-      "dni": "777",
-      "name": "VIRGINIA",
-      "age": 4
-    },
-    {
-      "id": "IReqx9r",
-      "dni": "333",
-      "name": "JULIO JOSE",
-      "age": 6
-    },
-    {
-      "id": "lRMfEVB",
+      "id": "otzK6p3",
       "dni": "555",
-      "name": "ANDRES",
-      "age": 4
+      "name": "PRB34567",
+      "age": 0,
+      "isDeleteAllow": false
+    },
+    {
+      "id": "ebvjN8a",
+      "dni": "987",
+      "name": "OTRO2",
+      "age": 0,
+      "isDeleteAllow": false
     }
   ],
   "posts": [

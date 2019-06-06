@@ -12,6 +12,7 @@ export const apiPut = (url, id, obj) => () =>
             return Promise.reject(r.validation);
         }
         return r;
+        //return Promise.reject({ age: 'Debe ser menor de edad'}); //forzar error 
     });
 
 export const apiPost = (url, obj) => () => 
@@ -36,5 +37,6 @@ export const apiDelete = (url, id) => () =>
         if (r.error) {
             return Promise.reject(r.validation);
         }
-        return id;
+        return r;
+        //return Promise.reject({ age: 'Debe ser menor de edad'}); //forzar error
     });

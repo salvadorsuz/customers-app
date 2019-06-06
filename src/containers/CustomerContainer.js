@@ -27,7 +27,12 @@ class CustomerContainer extends Component {
             if(r.error) {
                 throw new SubmissionError(r.payload);   
             }
-        });
+        }).catch( 
+            e => {
+                console.log('Error on update ');
+                throw new SubmissionError(e);
+            }
+        );
     };
 
     handleOnBack = () => {
@@ -44,7 +49,12 @@ class CustomerContainer extends Component {
         return this.props.deleteCustomer(id).then( r => {
             console.log('After promise delete');
             this.props.history.goBack();
-        });
+        }).catch( 
+            e => {
+                console.log('Error on delete');
+                throw new SubmissionError(e);
+            }
+        );
     };
 
     renderCustomerControl = (isEdit, isDelete) => {
