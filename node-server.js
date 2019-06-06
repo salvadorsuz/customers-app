@@ -14,8 +14,10 @@ server.listen(3001, () => {
 server.put('/customers/123', (req, res) => {
   let body = [];
   req.on('data', (chunk) => {
+    console.log('add chunk'+chunk);
     body.push(chunk);
   }).on('end', () => {
+    console.log('end');
     body = JSON.parse(Buffer.concat(body).toString());
     console.log(JSON.stringify(body));
     if (body.age && body.age > 18) {
@@ -23,8 +25,7 @@ server.put('/customers/123', (req, res) => {
       return res.send({ 
         error: true,
         validation: { 
-          age: 'Debe ser menor de edad',
-          name: 'El nombre es incorrecto'
+          age: 'Debe ser menor de edad'
         }
       });
     } else {

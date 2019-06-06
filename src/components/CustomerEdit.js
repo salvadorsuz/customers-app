@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form'
+import { Prompt } from 'react-router-dom';
 import { setPropsAsInitial } from './../helpers/setPropsAsInitial';
 import CustomerActions from '../components/CustomerActions';
+import { MyField } from './MyField';
 
 /*
 const isRequired = value => (
@@ -28,22 +30,14 @@ const validate = values => {
     return error;
 };
 
-const MyField = ({input, meta, type, label, name}) => (
-    <div>
-        <label htmlFor={name}>{label}</label>
-        <input {...input} type={!type ? "text" : type}/>
-        {
-            meta.touched && meta.error && <span>{meta.error}</span>
-        }
-    </div>
-);
-
 const toNumber = value => value && Number(value);
 const toUpper = value => value && value.toUpperCase();
 const toLower = value => value && value.toLowerCase();
-const onlyGrow = (value, previousValue, values) => value && previousValue && (value > previousValue ? value : previousValue);
+const onlyGrow = (value, previousValue, values) => 
+    value && (!previousValue ? value : (value > previousValue ? value : previousValue));
 
-const CustomerEdit = ({name, dni, age, handleSubmit, submitting, onBack}) => {
+const CustomerEdit = ({
+    name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded}) => {
     return (
         <div>
             <h2>Edicion del cliente</h2>
@@ -69,10 +63,14 @@ const CustomerEdit = ({name, dni, age, handleSubmit, submitting, onBack}) => {
                     validate={[isNumber]} 
                     parse={toNumber}
                     normalize={onlyGrow} />
+
                 <CustomerActions>
-                    <button type="submit" disabled={submitting}>Aceptar</button>
-                    <button type="button" onClick={onBack}>Cancelar</button>
+                    <button type="submit" disabled={pristine || submitting}>Aceptar</button>
+                    <button type="button" disabled={submitting} onClick={onBack}>Cancelar</button>
                 </CustomerActions>
+
+                <Prompt when={!pristine && !submitSucceeded} 
+                    message='Se perderan los datos si continua' />
             </form>
         </div>
     );
